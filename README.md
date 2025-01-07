@@ -111,3 +111,94 @@ We'll do a quick restart of our IIS to ensure everything is up to speed.
   <img src=https://i.imgur.com/pVvfcxD.png/>
 </p>
 <br />
+
+<p>
+From our installation folder, we're going to finally extract our osTicket! From there, we can copy our "upload" folder and move it into "C:\inetpub\wwwroot" and rename it to "osTicket".
+</p>
+<p>
+<img src=https://i.imgur.com/vzvxYu3.png/>
+  <img src=https://i.imgur.com/ALebDsl.png/>
+  <img src=https://i.imgur.com/s4jPAUn.png/>
+</p>
+<br />
+
+<p>
+We'll do a quick restart of our IIS just like we did a couple steps before. Then we can navigate to Sites > Default Web Site > osTicket and find browse *80. This should pull up an osTicket installer page that shows us what else we may need to configure. 
+</p>
+<p>
+  <img src=https://i.imgur.com/JjphPUu.png/>
+  <img src=https://i.imgur.com/Z7xs7nN.png/>
+  <img src=https://i.imgur.com/z5MqsAG.png/>
+</p>
+<br />
+
+<p>
+We'll go ahead and configure a few more settings from our IIS. If we go to our osTicket in IIS, we can enable some settings in PHP. If we right click these greyed out options, we're looking for php_imap.dll, php_intl.dll, and php_opcache.dll. Refreshing the browser should show that we enabled some new things!
+</p>
+<p>
+<img src=https://i.imgur.com/eOcQRtK.png/>
+  <img src=https://i.imgur.com/qyNCZ19.png/>
+  <img src=https://i.imgur.com/FXYWkxv.png/>
+</p>
+<br />
+
+<p>
+Next we need to rename a file on the harddrive that osTicket uses to make configurations. We can navigate get here from the file explorer with this C:\inetpub\wwwroot\osTicket\include\ost-sampleconfig.php. What we're trying to do is rename "ost-sampleconfig.php" to "ost-config.php".
+</p>
+<p>
+<img src=https://i.imgur.com/7LiAERG.png/>
+  <img src=https://i.imgur.com/vAE1Gz5.png/>
+</p>
+<br />
+
+<p>
+Now we need to set permissions for osTicket to make changes to this file. Right clicking that file, we can go to Properties > Security > Advanced > "Remove all inherited permissions from this object". From here, just for the sake of the demo, we're going to Add "Everyone" and select full control from the check boxes. Obviously, this would be dangerous is we were actually in a real world setting, but nobody is using this set up. Apply and Okay. Now osTicket has full control to the config file. 
+</p>
+<p>
+<img src=https://i.imgur.com/hfWdsie.png/>
+  <img src=https://i.imgur.com/mPZalRG.png/>
+  <img src=https://i.imgur.com/wOZSFMh.png/>
+  <img src=https://i.imgur.com/B1Qkd6m.png/>
+</p>
+<br />
+
+<p>
+From the setup page in the browser, we can continue our setup and fill out some information. But before we can go past this page, we're sstill missing database information. So we'll need to finally use our last install file from our installation folder, HeidiSQL.
+</p>
+<p>
+<img src=https://i.imgur.com/whUBbnK.png/>
+  <img src=https://i.imgur.com/uysnFRs.png/>
+  <img src=https://i.imgur.com/pe6zC6A.png/>
+</p>
+<br />
+
+<p>
+After opening it, we need to connect HeidiSQL to our database and set it up for osTicket to use. We'll click "New" and the username is already set to root. We'll use our password from earlier that we also set to root. After opening it up we can see our database. Now we need to make a new database called "osTicket" just like our folder we renamed before. 
+</p>
+<p>
+<img src=https://i.imgur.com/lhd5EGv.png/>
+  <img src=https://i.imgur.com/8DCfxGE.png/>
+  <img src=https://i.imgur.com/FTd1VDC.png/>
+  <img src=https://i.imgur.com/h9fS5Jv.png/>
+</p>
+<br />
+
+<p>
+Back in our browser, we can now add our database settings and click install now! That should do it. osTicket should be operational now! Plus we can see some stuff in our HeidiSQL database. 
+</p>
+<p>
+<img src=https://i.imgur.com/ZwFPUQk.png/>
+  <img src=https://i.imgur.com/YWysw04.png/>
+  <img src=https://i.imgur.com/fi0hAkX.png/>
+</p>
+<br />
+
+<p>
+You can see both the admin and end user logins, as well as our operational Helpdesk.
+</p>
+<p>
+<img src=https://i.imgur.com/5LL8aFP.png/>
+  <img src=https://i.imgur.com/YLKTwV9.png/>
+  <img src=https://i.imgur.com/9jRxLIT.png/>
+</p>
+<br />

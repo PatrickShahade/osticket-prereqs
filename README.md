@@ -28,7 +28,7 @@ This is an outline for the prerequisites and installation of the open-source hel
 <h2>Installation Steps</h2>
 
 <p>
-First, in Azure, I'm creating a basic VM to operate our Help Desk from. For size, I used Standard_D2s_v3 - 2 vcpus, 8GiB memory. 
+1) In Azure, I'm creating a basic Virtual Machine (VM) to operate a Help Desk from. This is all I configured before creating. 
 </p>
 <p>
 <img src=https://i.imgur.com/jVpWRlC.png/>
@@ -37,7 +37,7 @@ First, in Azure, I'm creating a basic VM to operate our Help Desk from. For size
 <br />
 
 <p>
-From within the VM, we're going to download an osTicket installation zip file and unzip it onto our desktop. The one I'm using has additional files we'll need for setup. osTicket has documentation for all these files, this zip just has them all compiled already for us.
+2) I've logged into my VM, and now I'm going to download an osTicket installation zip file and unzip it onto the desktop. osTicket has documentation for all the files required for setup, this zip just has them all compiled already.
 </p>
 <p>
 <img src=https://i.imgur.com/6qnobCe.png/>
@@ -46,7 +46,7 @@ From within the VM, we're going to download an osTicket installation zip file an
 <br />
 
 <p>
-From here we can click start and open the control panel, then access programs and features. We opt to turn Windows features on/off and we enable Internet Information Services and CGI. 
+3) From here I used the search bar to find the control panel, and then selected "programs and features". We opt to turn Windows features on/off and we enable Internet Information Services and CGI. 
 </p>
 <p>
 <img src=https://i.imgur.com/AHXVFqd.png/>
@@ -56,7 +56,7 @@ From here we can click start and open the control panel, then access programs an
 <br />
 
 <p>
-After this, we're going to install PHP manager and Rewrite Module from our installation zip. Both of these are required for our osTicket setup, though they might seem unrelated.
+4) After this, I'm going to install PHP manager and Rewrite Module from the installation zip. These are required for installation. 
 </p>
 <p>
 <img src=https://i.imgur.com/prqELE7.png/>
@@ -65,7 +65,7 @@ After this, we're going to install PHP manager and Rewrite Module from our insta
 <br />
 
 <p>
-We'll make a directory for PHP real quick in our C drive, then extract our PHP zip from our installation folder into our directory.
+5) I need to make a directory/folder for PHP in our C drive, then extract the PHP zip from the installation folder into the directory.
 </p>
 <p>
 <img src=https://i.imgur.com/l7YeoXq.png/>
@@ -74,7 +74,7 @@ We'll make a directory for PHP real quick in our C drive, then extract our PHP z
 <br />
 
 <p>
-We have a few more files to install. So we'll go ahead and install this C++ Redistributable file and MySQL with the "Typical" setup option with "Standard" configuration.
+6) Just a few more files to install. I install this C++ Redistributable file and MySQL with the "Typical" setup option with "Standard" configuration.
 </p>
 <p>
 <img src=https://i.imgur.com/2bXQNvH.png/>
@@ -84,7 +84,7 @@ We have a few more files to install. So we'll go ahead and install this C++ Redi
 <br />
 
 <p>
-For this demo, when we arrive at this section of the MySQL, we're just using "root" as our password here. This wouldn't be practical for real applications, but here we're just covering the install. 
+7) For this demo, when I arrive at this section of the MySQL, I'm just using "root" as our password here. This would NOT be practical/recommended for real applications, but since I'm just covering the install I don't wanna get too mixed up. 
 </p>
 <p>
 <img src=https://i.imgur.com/garkODX.png/>
@@ -93,7 +93,7 @@ For this demo, when we arrive at this section of the MySQL, we're just using "ro
 <br />
 
 <p>
-Next we're going to open IIS as an admin so we can configure PHP. We access the PHP manager, register a new PHP version, and provide/browse to our path to the php-cgi file. 
+8) Next I'm going to open IIS as an administrator so I can configure PHP. Select the PHP manager, register a new PHP version, and provide a path to the php-cgi file. 
 </p>
 <p>
 <img src=https://i.imgur.com/dWh2vuJ.png/>
@@ -104,7 +104,7 @@ Next we're going to open IIS as an admin so we can configure PHP. We access the 
 <br />
 
 <p>
-We'll do a quick restart of our IIS to ensure everything is up to speed.
+9) I use the restart option in IIS to ensure everything is up to speed.
 </p>
 <p>
 <img src=https://i.imgur.com/6BBJ2g9.png/>
@@ -113,7 +113,7 @@ We'll do a quick restart of our IIS to ensure everything is up to speed.
 <br />
 
 <p>
-From our installation folder, we're going to finally extract our osTicket! From there, we can copy our "upload" folder and move it into "C:\inetpub\wwwroot" and rename it to "osTicket".
+10) From the installation folder, I can finally extract our osTicket! From there, I copy the "upload" folder and move it into "C:\inetpub\wwwroot" and rename it to "osTicket".
 </p>
 <p>
 <img src=https://i.imgur.com/vzvxYu3.png/>
@@ -123,7 +123,7 @@ From our installation folder, we're going to finally extract our osTicket! From 
 <br />
 
 <p>
-We'll do a quick restart of our IIS just like we did a couple steps before. Then we can navigate to Sites > Default Web Site > osTicket and find browse *80. This should pull up an osTicket installer page that shows us what else we may need to configure. 
+11) I do another restart of IIS just as before. Then navigate to Sites > Default Web Site > osTicket and find browse *80. This should pull up an osTicket installer page that shows us what else we may need to configure. 
 </p>
 <p>
   <img src=https://i.imgur.com/JjphPUu.png/>
@@ -133,7 +133,7 @@ We'll do a quick restart of our IIS just like we did a couple steps before. Then
 <br />
 
 <p>
-We'll go ahead and configure a few more settings from our IIS. If we go to our osTicket in IIS, we can enable some settings in PHP. If we right click these greyed out options, we're looking for php_imap.dll, php_intl.dll, and php_opcache.dll. Refreshing the browser should show that we enabled some new things!
+12) Time to configure a few more settings from IIS. Within the osTicket file in IIS, I need to enable some extensions in PHP by right clicking greyed out options and selecting "enable". I'm looking for <b>php_imap.dll, php_intl.dll, and php_opcache.dll</b>. Refreshing the browser should show these things have been enabled.
 </p>
 <p>
 <img src=https://i.imgur.com/eOcQRtK.png/>
@@ -143,7 +143,7 @@ We'll go ahead and configure a few more settings from our IIS. If we go to our o
 <br />
 
 <p>
-Next we need to rename a file on the harddrive that osTicket uses to make configurations. We can navigate get here from the file explorer with this C:\inetpub\wwwroot\osTicket\include\ost-sampleconfig.php. What we're trying to do is rename "ost-sampleconfig.php" to "ost-config.php".
+13) Next I need to rename a file on the harddrive that osTicket uses to make configurations. I can navigate there from the file explorer with this C:\inetpub\wwwroot\osTicket\include\ost-sampleconfig.php. What I'm trying to do is rename "ost-sampleconfig.php" to "ost-config.php".
 </p>
 <p>
 <img src=https://i.imgur.com/7LiAERG.png/>
@@ -152,7 +152,7 @@ Next we need to rename a file on the harddrive that osTicket uses to make config
 <br />
 
 <p>
-Now we need to set permissions for osTicket to make changes to this file. Right clicking that file, we can go to Properties > Security > Advanced > "Remove all inherited permissions from this object". From here, just for the sake of the demo, we're going to Add "Everyone" and select full control from the check boxes. Obviously, this would be dangerous is we were actually in a real world setting, but nobody is using this set up. Apply and Okay. Now osTicket has full control to the config file. 
+14) Now to set permissions for osTicket to make changes to this file. Right clicking that file, we can go to Properties > Security > Advanced > "Remove all inherited permissions from this object". From here, just for the sake of the demo, I'm going to Add "Everyone" and select full control from the check boxes. Just like the root password, this would be dangerous in a real world setting. But this is a demo and nobody is using this set up. Apply and Okay. Now osTicket has full control to the config file. 
 </p>
 <p>
 <img src=https://i.imgur.com/hfWdsie.png/>
@@ -163,7 +163,7 @@ Now we need to set permissions for osTicket to make changes to this file. Right 
 <br />
 
 <p>
-From the setup page in the browser, we can continue our setup and fill out some information. But before we can go past this page, we're sstill missing database information. So we'll need to finally use our last install file from our installation folder, HeidiSQL.
+15) From the setup page in the browser, I can continue setup and fill out some information. But before I can go past this page, I'm still missing database information. So I'll need to finally use our last install file from our installation folder, HeidiSQL.
 </p>
 <p>
 <img src=https://i.imgur.com/whUBbnK.png/>
@@ -173,7 +173,7 @@ From the setup page in the browser, we can continue our setup and fill out some 
 <br />
 
 <p>
-After opening it, we need to connect HeidiSQL to our database and set it up for osTicket to use. We'll click "New" and the username is already set to root. We'll use our password from earlier that we also set to root. After opening it up we can see our database. Now we need to make a new database called "osTicket" just like our folder we renamed before. 
+16) After opening it, I need to connect HeidiSQL to the database and set it up for osTicket to use. I'll click "New" and the username is already set to root. I'll use that silly password from earlier that I also set to root. After opening it up you can see the database. Now I need to make a new database called "osTicket" just like the folder we renamed before. 
 </p>
 <p>
 <img src=https://i.imgur.com/lhd5EGv.png/>
@@ -184,7 +184,7 @@ After opening it, we need to connect HeidiSQL to our database and set it up for 
 <br />
 
 <p>
-Back in our browser, we can now add our database settings and click install now! That should do it. osTicket should be operational now! Plus we can see some stuff in our HeidiSQL database. 
+17) Back in the browser, I can now add the database settings and click install now! That should do it. osTicket should be operational now! Plus you can see some stuff in the HeidiSQL database. 
 </p>
 <p>
 <img src=https://i.imgur.com/ZwFPUQk.png/>
@@ -194,7 +194,7 @@ Back in our browser, we can now add our database settings and click install now!
 <br />
 
 <p>
-You can see both the admin and end user logins, as well as our operational Helpdesk.
+Both the admin and end user logins, as well as the operational Helpdesk.
 </p>
 <p>
 <img src=https://i.imgur.com/5LL8aFP.png/>

@@ -19,11 +19,12 @@ This is an outline for the prerequisites and installation of the open-source hel
 
 <h2>List of Prerequisites</h2>
 
-- Set up VM
-- Item 2
-- Item 3
-- Item 4
-- Item 5
+- osTicket
+- PHPManagerForIIS
+- ISS URL Rewrite Module
+- Microsoft Visual C++ Redistributable
+- MySQL
+- HeidiSQL
 
 <h2>Installation Steps</h2>
 

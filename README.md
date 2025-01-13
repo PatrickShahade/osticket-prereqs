@@ -38,7 +38,7 @@ This is an outline/guide for preparing the prerequisites and installation of the
 <br />
 
 <p>
-2) I've logged into my VM, and now I'm going to download an osTicket installation zip file and unzip it onto the desktop. osTicket has documentation for all the files required for setup, this zip just has them all compiled already.
+2) I've logged into my VM, and now I'm going to download an <a href="https://drive.google.com/uc?export=download&id=1b3RBkXTLNGXbibeMuAynkfzdBC1NnqaD">osTicket installation zip file</a> and unzip it onto the desktop. osTicket has documentation for all the files required for setup, this zip just has them all compiled already.
 </p>
 <p>
 <img src=https://i.imgur.com/6qnobCe.png/>
